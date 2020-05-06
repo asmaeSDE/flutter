@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:programe/models/test.dart';
+import 'package:programe/models/user.dart';
 
 class DatabaseService 
 {
@@ -19,6 +20,20 @@ async {
    'age' : age
  });
 
+}
+
+UserData _userDataFromSnapshot(DocumentSnapshot snapshot)
+{
+  return UserData(
+    uid: uid,
+    name: snapshot.data['name'],
+    lastName : snapshot.data['lastName'],
+    age : snapshot.data['age'],
+
+  );
+}
+Stream<UserData> get userData{
+  return TestCollection.document(uid).snapshots().map(_userDataFromSnapshot);
 }
 
 // get list stream
@@ -42,5 +57,7 @@ Stream<List<Test>> get test
   return TestCollection.snapshots()
   .map(_testListFromSnapShot);
 }
+
+
 
 }

@@ -27,6 +27,7 @@ dependencies:
   cloud_firestore: ^0.13.5
   provider: ^4.0.5+1
   flutter_spinkit: "^4.1.2"
+  flutter_auth_buttons: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +39,12 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+        - images/
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Medium.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,19 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:programe/screens/home/setting_forms.dart';
+import 'package:programe/models/user.dart';
+
 import 'package:programe/services/auth.dart';
 import 'package:programe/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'TestList.dart';
 import 'package:programe/models/test.dart';
+import 'package:provider/provider.dart';
 class home extends StatelessWidget {
 
   final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
+    
+
 
 void _showSettingPanel()
 {
@@ -21,7 +25,7 @@ void _showSettingPanel()
   {
     return Container(
 padding: EdgeInsets.symmetric(vertical:20.0,horizontal:60.0),
-child:  SettingsForm(),
+//child:  SettingsForm(),
     );
   } );
 }
@@ -29,7 +33,7 @@ child:  SettingsForm(),
     return StreamProvider<List<Test>>.value(
       value: DatabaseService().test,
       child: Scaffold(
-      backgroundColor: Colors.brown[50] ,
+     backgroundColor: Colors.green,
       appBar: AppBar(
         title: Text('Home'),
         backgroundColor: Colors.brown[400],

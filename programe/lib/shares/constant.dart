@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
-const textfield = 
- InputDecoration(
 
-fillColor:Colors.white,
-filled: true,
-enabledBorder: OutlineInputBorder(
-borderSide: BorderSide(color:Colors.white , width:2.0),
+final emailField =
+           InputDecoration(
+             
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Email",
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)));
+     
 
-),
-focusedBorder: OutlineInputBorder(
-borderSide: BorderSide(color:Colors.pink , width:2.0),
+         final passwordField = InputDecoration(
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Password",
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)));
 
-),
- );
-
+                  final ConfirmepasswordField = InputDecoration(
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: " Confirm Password",
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)));

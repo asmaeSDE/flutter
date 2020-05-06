@@ -24,14 +24,14 @@ class _RegisterState extends State<Register>
   @override
   Widget build(BuildContext context) {
     return loading ?  Loading() : Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.green[255],
 
       appBar: AppBar(
 
-backgroundColor: Colors.brown[400],
+backgroundColor: Colors.green,
 elevation: 0.0,
 title: Text(
-'Sign Up'
+'Inscription'
 ),
 actions: <Widget>[
  FlatButton.icon(
@@ -39,7 +39,7 @@ actions: <Widget>[
    onPressed: () {
      widget.toggleView();
    }, 
-   label: Text('Sign In'),
+   label: Text('Connexion'),
    ) 
 ],
 
@@ -50,10 +50,16 @@ body: Container(
     key: _formeKey,
     child: Column(
 children: <Widget>[
-  SizedBox(height : 20.0),
+ SizedBox(
+                      height: 255.0,
+                      child: Image.asset(
+                        "images/logo.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+ 
  TextFormField(
-   decoration : textfield.copyWith(hintText:'Email'),
-
+   decoration : emailField,
   
     validator: (val) => val.isEmpty ? 'Enter an Email' : null,
    onChanged : (val)
@@ -63,7 +69,7 @@ setState(() => email = val);
  ),
 SizedBox(height: 20.0),
 TextFormField(
-  decoration : textfield.copyWith(hintText:'password'),
+  decoration : passwordField,
    
  validator: (val) => val.length <6 ? 'Enter a password 6+ chars Long ' : null,
   obscureText: true,
@@ -72,14 +78,23 @@ onChanged: (val)
 setState(() => password = val);
 },
 ),
+SizedBox(height: 20.0),
+
 SizedBox(height:20.0),
-RaisedButton(
+Material (
+  borderRadius: BorderRadius.circular(32.0),
+  color:  Colors.orange,
+
+child : MaterialButton(
   
-  color:  Colors.pink[400],
+ 
   child: Text(
-    'Register',
-     style: TextStyle(color : Colors.white) ,
+    'Inscrire',
+      style: TextStyle(color : Colors.white , fontFamily: 'Montserrat' ,fontWeight: FontWeight.bold) ,
   ),
+ 
+  minWidth: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
   onPressed: () async {
 if(_formeKey.currentState.validate())
 {
@@ -98,6 +113,7 @@ loading=false;
   },
 
  
+),
 ),
 SizedBox(height:10.0),
 Text(

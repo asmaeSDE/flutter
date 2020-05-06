@@ -6,15 +6,16 @@ class AuthService{
 
 final FirebaseAuth  _auth = FirebaseAuth.instance;
 
-//create user object based on firebaseUser
 
+
+ // private method to create `User` from `FirebaseUser`
 User _userFromFireBaseUser(FirebaseUser user)
 {
   return user != null ? User(uid:user.uid): null;
 }
 
 Stream<User> get user {
-
+// map all `FirebaseUser` objects to `User`, using the `_userFromFirebaseUser` method
   return _auth.onAuthStateChanged
   .map((FirebaseUser user ) => _userFromFireBaseUser(user));
 
